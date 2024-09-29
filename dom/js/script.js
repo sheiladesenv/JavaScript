@@ -1,26 +1,27 @@
 //DOM movimentando-se nele
 //console.log(document.body);
- 
-//console.log(document.body.childNodes);
+
+console.log(document.body.childNodes);
 
 console.log(document.body.childNodes[1].childNodes);
 
 //propriedade para acessar o elemento do título
 console.log(document.body.childNodes[1].childNodes[1].textContent);
 
-//propriedade para acessar o elemento do título
 console.log(document.body.childNodes[5].childNodes[1].textContent);
 
-// Para corrigir o retorno dos filhos do nó, sem os espaços em branco do texto
+//para corrigir o retorno dos filhos do nó, sem os espaços em branco do texto
 //utilize a linha de comando abaixo
-// o Header estará na posição 0, main na posição 1 e footer na 2
+//dessa forma Header estará na posição 0, main na posição 1 e footer na 2
 console.log(document.body.children);
 
-//alterando para children, agora ele mostra o conteúdo do texto do footer na posição real (posição 2)
+//alterando para children, agora ele 
+//mostra o conteúdo do texto do footer na posição real que é a posição 2
 console.log(document.body.children[2].childNodes[1].textContent);
 
 //selecionando por tags
 const listadeItens = document.getElementsByTagName("li");
+
 console.log(listadeItens);
 
 //selecionando elemento por id
@@ -37,8 +38,13 @@ const header = titulo.parentElement;
 header.insertBefore(paragrafo, titulo);
 
 //appendChild
+
 const navLinks = document.querySelector("nav ul");
 const li = document.createElement("li");
+const a = document.createElement("a");
+a.href = "#";
+a.textContent = "Blog";
+li.appendChild(a);
 navLinks.appendChild(li);
 
 //replaceChild
@@ -47,19 +53,21 @@ h2.textContent = "Novo Título";
 header.replaceChild(h2, titulo);
 
 //criando um nó de texto
+
 const meuTexto = document.createTextNode("Inserindo outro título");
 console.log(meuTexto);
 
 const h3 = document.createElement("h3");
 h3.appendChild(meuTexto);
-console.log(h3);
-//header.replaceChild(h3, titulo); //?fazer em casa
+h2.insertAdjacentElement('afterend',h3);
 
-//set Attribut e getAttribut
+console.log(h3);
+
+//setAttribute e getAttribute
 const primeiroLink = navLinks.querySelector("a");
 console.log(primeiroLink);
 
-primeiroLink.setAttribute("href", "https://www.uol.com.br");
+primeiroLink.setAttribute("href", "https://www.uol.com.br/");
 
 //pegando o link alterado
 console.log(primeiroLink.getAttribute("href"));
@@ -74,6 +82,7 @@ console.log(footer.offsetHeight);
 console.log(footer.clientWidth);
 console.log(footer.clientHeight);
 
+
 //getBoudingClientRect
 const produtos1 = produtos[0];
 console.log(produtos1.getBoundingClientRect());
@@ -85,7 +94,7 @@ mainCss.style.backgroundColor = "#000";
 mainCss.style.paddingBottom = "100px";
 
 //HTML Collection
-//fazend um loop no li e alterando a cor de fundo
+//fazendo um loop no li e alterando a cor de fundo
 
 for(const li of listadeItens){
     li.style.backgroundColor = "yellow";
